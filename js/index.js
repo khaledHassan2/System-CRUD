@@ -8,14 +8,15 @@ btnAddProduct.addEventListener('click',function(eventInfo){
         productNameInput.classList.contains('is-valid')&&
         productCategotyInput.classList.contains('is-valid')&&
         productPriceInput.classList.contains('is-valid')&&
-        productDescInput.classList.contains('is-valid')
+        productDescInput.classList.contains('is-valid')&&
+        productImgInput.classList.contains('is-valid')
       )
       {
           addProduct();
       }
       else{
 
-        alert('The Form Is Not Valid');
+        alert('The Form Is Not Valid Or Choose Picture');
 
       }
 
@@ -167,10 +168,11 @@ function setFormProduct(UpdateIndex){
 btnUpdateProduct.addEventListener('click',function(eventInfo){
 
         if( 
-            productNameInput.classList.contains('is-valid')&&
-            productCategotyInput.classList.contains('is-valid')&&
-            productPriceInput.classList.contains('is-valid')&&
-            productDescInput.classList.contains('is-valid')
+            productNameInput.classList.contains('is-valid')||
+            productCategotyInput.classList.contains('is-valid')||
+            productPriceInput.classList.contains('is-valid')||
+            productDescInput.classList.contains('is-valid')||
+            productImgInput.classList.contains('is-valid')
           )
           {
             updateProduct(carentIndex);
@@ -250,6 +252,11 @@ productDescInput.addEventListener('input',function(eventInfo){
     validationProduct(this);
     
 });
+productImgInput.addEventListener('click',function(eventInfo){
+
+    productImgInput.classList.add('is-valid');
+    
+});
 function validationProduct(element){
 
     valedation ={
@@ -262,7 +269,6 @@ function validationProduct(element){
     }
     if(valedation[element.id].test(element.value)){
 
-        console.log('Match');
         element.classList.add('is-valid');
         element.classList.remove('is-invalid');
         element.nextElementSibling.classList.add('d-none');
