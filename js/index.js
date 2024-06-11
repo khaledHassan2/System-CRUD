@@ -79,6 +79,7 @@ function clearForm(){
     productCategotyInput.value =null;
     productPriceInput.value =null;
     productDescInput.value =null;
+    productImgInput.value =null;
 
     productNameInput.classList.remove('is-valid');
     productCategotyInput.classList.remove('is-valid');
@@ -196,7 +197,8 @@ function setFormProduct(UpdateIndex){
     productCategotyInput.value =productList[UpdateIndex].Categoty
     productPriceInput.value =productList[UpdateIndex].Price
     productDescInput.value =productList[UpdateIndex].Desc
-    // productImgInput.value =productList[UpdateIndex].Img
+    // productImgInput.files.name =productList[UpdateIndex].Img
+   
     }
     
     var btnUpdateProduct =document.getElementById('btnUpdateProduct');
