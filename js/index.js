@@ -1,8 +1,24 @@
 // =================== ADD Product ========================
 
+var BoxWarning =document.querySelector('.BoxWarning');
+
+BoxWarning.addEventListener('click',function(eventInfo){
+
+    BoxWarning.classList.add('d-none');
+});
+
+var BoxSuccess =document.querySelector('.BoxSuccess');
+
+BoxSuccess.addEventListener('click',function(eventInfo){
+
+    BoxSuccess.classList.add('d-none');
+});
+
 var btnAddProduct =document.getElementById('btnAddProduct');
 
 btnAddProduct.addEventListener('click',function(eventInfo){
+
+    eventInfo.preventDefault();
 
     if( 
         productNameInput.classList.contains('is-valid')&&
@@ -13,10 +29,12 @@ btnAddProduct.addEventListener('click',function(eventInfo){
       )
       {
           addProduct();
+          clearForm();
+          BoxSuccess.classList.remove('d-none');
       }
       else{
 
-        alert('The Form Is Not Valid Or Choose Picture');
+        BoxWarning.classList.remove('d-none');
 
       }
 
@@ -51,6 +69,22 @@ function addProduct(){
     localStorage.setItem('product',JSON.stringify(productList));
     displayProduct(productList);
 
+}
+
+//=========================== Clear Form ===========
+
+function clearForm(){
+
+    productNameInput.value =null;
+    productCategotyInput.value =null;
+    productPriceInput.value =null;
+    productDescInput.value =null;
+
+    productNameInput.classList.remove('is-valid');
+    productCategotyInput.classList.remove('is-valid');
+    productPriceInput.classList.remove('is-valid');
+    productDescInput.classList.remove('is-valid');
+    productImgInput.classList.remove('is-valid');
 }
 
 //=========================== Display Product===========
@@ -148,8 +182,10 @@ function returnLastDelet(){
 
 //========================================= Update Product====================================
 
-
 function setFormProduct(UpdateIndex){
+    
+    var btnUpdate =document.documentElement;
+    btnUpdate.scrollTop = 50;
     
     carentIndex =UpdateIndex;
     
@@ -167,6 +203,8 @@ function setFormProduct(UpdateIndex){
     
 btnUpdateProduct.addEventListener('click',function(eventInfo){
 
+    eventInfo.preventDefault();
+
         if( 
             productNameInput.classList.contains('is-valid')||
             productCategotyInput.classList.contains('is-valid')||
@@ -176,14 +214,17 @@ btnUpdateProduct.addEventListener('click',function(eventInfo){
           )
           {
             updateProduct(carentIndex);
+            clearForm();
+            BoxSuccess.classList.remove('d-none');
+            btnAddProduct.classList.remove('d-none');
+            btnUpdateProduct.classList.add('d-none');
           }
           else{
     
-            alert('The Form Is Not Valid');
+            BoxWarning.classList.remove('d-none');
     
           }
-
-         
+          
 
 })
 
