@@ -1,0 +1,14 @@
+img{
+    height: 250px;
+    object-fit: contain;
+    /* background-color: red; */
+}
+body{
+    background-color: #F1F0E8;
+}
+.form{
+    background-color: #96B6C5;
+}
+.card-body{
+    background-color: #EEE0C9;
+}

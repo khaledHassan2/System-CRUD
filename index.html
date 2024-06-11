@@ -10,37 +10,74 @@
      <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <section class="container text-capitalize py-5 bg-body-tertiary shadow">
+
+    <section class="container form text-capitalize py-5 bg-body-tertiary shadow">
+
         <h1 class="text-center mb-5">system CRUD</h1>
+
         <form action="">
 
           <div class="form-floating mb-3">
               <input type="text" class="form-control" id="productNameInput" placeholder="">
+              <div class="alert alert-danger p-0 my-2 ps-1 w-50 shadow d-none">it should contains between  3   to 25 characters</div>
               <label for="floatingInput">product name</label>
             </div>
           <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="productCategotyInput" placeholder="">
+
+              <input list="categoty" type="text" class="form-control" id="productCategotyInput" placeholder="">
+              <div class="alert alert-danger p-0 my-2 ps-1 w-50 shadow d-none">It should start with a capital letter or choose from list</div>
               <label for="floatingInput">categoty</label>
+              <datalist id="categoty">
+                <option value="Mobil">
+                <option value="Tv">
+                <option value="fridge">
+                <option value="Washin Mashin">
+                <option value="Fan">
+              </datalist>
             </div>
+
             <div class="form-floating mb-3">
               <input type="number" class="form-control" id="productPriceInput" placeholder="">
+              <div class="alert alert-danger p-0 my-2 ps-1 w-50 shadow d-none">Lowest price $1000</div>
               <label for="floatingPassword">product price</label>
             </div>
+
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="productDescInput" placeholder="">
+              <div class="alert alert-danger p-0 my-2 ps-1 w-50 shadow d-none">it should contains between 3 to 50 characters</div>
               <label for="floatingPassword">descrption</label>
             </div>
+
             <div class="form-floating mb-3">
               <input type="file" class="form-control" id="productImgInput" placeholder="">
               <label for="floatingPassword">product imge</label>
             </div>
-            <button id="btnAddProduct" type="submit" class="btn btn-primary">add product</button>
-            <button id="btnUpdateProduct" type="submit" class="btn btn-warning d-none">update product</button>
-            <button class="btnReturnLastDelet btn btn-success"><i class="fa-solid fa-rotate-left me-1"></i> return last delet</button>
-            <button class="btnReturnAllDelet btn btn-success"><i class="fa-solid fa-trash-arrow-up me-1"></i>return all delet</button>
+
+            <div class="d-flex justify-content-between align-items-center">
+
+              <div>
+                <button id="btnAddProduct" type="submit" class="btn btn-primary">add product</button>
+                <button id="btnUpdateProduct" type="submit" class="btn btn-warning d-none">update product</button>
+              </div>
+
+              <div>
+                <button class="btnReturnLastDelet btn btn-success"><i class="fa-solid fa-rotate-left me-1"></i> return last delet</button>
+                <button class="btnReturnAllDelet btn btn-success"><i class="fa-solid fa-trash-arrow-up me-1"></i>return all delet</button>
+              </div>
+
+            </div>
+
         </form>
+
     </section>
+
     <section class="container my-5">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control w-50" id="productSearshInput" placeholder="">
+        <label for="floatingPassword">Sersh Product<i class="fa fa-search fs-5 ms-1 text-primary"></i></label>
+      </div>
+
+
       <div class="row">
         
       </div>
